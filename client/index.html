@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Diaspora Classifieds</title>
+    <!-- Link the stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header with decorative background -->
+    <header>
+      <h1>Indian Diaspora Classifieds</h1>
+      <p class="tagline">Connecting our community one post at a time</p>
+    </header>
+
+    <main class="container">
+      <!-- Authentication -->
+      <section class="card auth-card" id="authCard">
+        <h2 id="authTitle">Login</h2>
+        <form id="authForm">
+          <label for="authUsername">Username</label>
+          <input type="text" id="authUsername" name="authUsername" required />
+          <label for="authPassword">Password</label>
+          <input type="password" id="authPassword" name="authPassword" required />
+          <button type="submit" class="button" id="authSubmit">Login</button>
+        </form>
+        <p id="toggleAuth">Don't have an account? <a href="#" id="switchAuth">Register here</a></p>
+      </section>
+
+      <section class="card user-card hidden" id="userCard">
+        <h2>Welcome, <span id="currentUser"></span></h2>
+        <div class="user-actions">
+          <button id="myPostsBtn" class="button secondary">My Posts</button>
+          <button id="messagesBtn" class="button secondary hidden">Messages</button>
+          <button id="logoutBtn" class="button">Logout</button>
+        </div>
+      </section>
+      <!-- Form to create a new post -->
+      <section class="card form-card">
+        <h2>Post a Classified</h2>
+        <form id="postForm">
+          <label for="content">Content</label>
+          <textarea id="content" name="content" rows="3" placeholder="What's happening?" required></textarea>
+
+          <label for="neighborhood">Neighborhood</label>
+          <input
+            type="text"
+            id="neighborhood"
+            name="neighborhood"
+            placeholder="e.g., Hilliard"
+            required
+          />
+
+          <label for="tags">Categories</label>
+          <select id="tags" name="tags" multiple></select>
+
+          <label for="images">Images</label>
+          <input
+            type="file"
+            id="images"
+            name="images"
+            accept="image/*"
+            multiple
+          />
+
+          <button type="submit" class="button">Post</button>
+        </form>
+      </section>
+
+      <!-- Filters -->
+      <section class="card filter-card">
+        <h2>Filter Posts</h2>
+        <div class="filters">
+          <div class="filter-group">
+            <label for="search">Search</label>
+            <input type="text" id="search" name="search" placeholder="Search posts..." />
+          </div>
+          <div class="filter-group">
+            <label for="filterNeighborhood">Neighborhood</label>
+            <select id="filterNeighborhood">
+              <option value="">All neighborhoods</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filterTags">Categories</label>
+            <select id="filterTags" multiple></select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Posts container -->
+      <section id="posts" class="posts"></section>
+
+      <!-- Messages view for direct messaging with conversation list -->
+      <section class="card messages-card hidden" id="messagesCard">
+        <h2>Messages</h2>
+        <div class="messaging-container">
+          <!-- Sidebar showing conversations and new conversation selector -->
+          <aside class="conversations-sidebar">
+            <h3>Conversations</h3>
+            <div id="conversationsList" class="conversations-list"></div>
+            <div class="new-conversation">
+              <label for="recipientSelect">New conversation</label>
+              <select id="recipientSelect">
+                <option value="">Select a user</option>
+              </select>
+            </div>
+          </aside>
+          <!-- Conversation panel showing messages -->
+          <div class="conversation-panel">
+            <h3 id="conversationTitle"></h3>
+            <div id="messagesList" class="messages-list"></div>
+            <div id="typingIndicator" class="typing-indicator hidden"></div>
+            <form id="messageForm" class="message-form hidden">
+              <input type="text" id="messageInput" placeholder="Type a message..." required />
+              <button type="submit" class="button">Send</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Admin dashboard for moderators -->
+      <section class="card admin-card hidden" id="adminCard">
+        <h2>Admin Dashboard</h2>
+        <div class="admin-section" id="adminPosts">
+          <h3>Pending Posts</h3>
+          <div id="pendingPostsList"></div>
+        </div>
+        <div class="admin-section" id="adminUsers">
+          <h3>Manage Users</h3>
+          <div id="usersList"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> Indian Diaspora Classifieds. All rights reserved.</p>
+    </footer>
+    
+    <!-- Socket.IO client script for real-time messaging -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Client script -->
+    <script src="script.js"></script>
+  </body>
+</html>

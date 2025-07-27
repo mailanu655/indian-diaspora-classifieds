@@ -1,0 +1,573 @@
+:root {
+  --primary: #ff5722;
+  --secondary: #4caf50;
+  --background: #fafafa;
+  --text-dark: #333;
+  --text-light: #fff;
+  --card-background: #fff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--text-dark);
+}
+
+header {
+  background-image: url('assets/background.png');
+  background-size: cover;
+  background-position: center;
+  color: var(--text-light);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header .tagline {
+  font-size: 1rem;
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: -80px auto 40px auto;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background: var(--card-background);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.form-card h2,
+.filter-card h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.form-card label,
+.filter-card label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form-card input,
+.form-card textarea,
+.filter-card select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.form-card textarea {
+  resize: vertical;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--primary);
+  color: var(--text-light);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background-color: #e64a19;
+}
+
+/* Secondary button variant */
+.button.secondary {
+  background-color: var(--secondary);
+}
+
+.button.secondary:hover {
+  background-color: #388e3c;
+}
+
+/* User actions container */
+.user-card .user-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.filters label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post-card p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.post-card .tags {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.tag-neighborhood {
+  background-color: var(--secondary);
+  color: var(--text-light);
+}
+
+.tag-category {
+  background-color: var(--primary);
+  color: var(--text-light);
+}
+
+.post-card .date {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: #777;
+}
+
+/* Comments section under each post */
+.comments-section {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.comment {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.comment strong {
+  color: #1976d2;
+  margin-right: 4px;
+}
+
+.comment-date {
+  font-size: 0.7rem;
+  color: #777;
+  margin-left: 6px;
+}
+
+/* Comment form styling */
+.comment-form {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.comment-form .comment-input {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  box-sizing: border-box;
+}
+
+.comment-form .comment-submit {
+  background-color: var(--primary);
+  color: var(--text-light);
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comment-form .comment-submit:hover {
+  background-color: #e64a19;
+}
+
+/* Action buttons for editing and deleting posts */
+.post-card .actions {
+  margin-top: 10px;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 10px;
+  font-size: 0.8rem;
+  text-decoration: underline;
+}
+
+.action-button.edit {
+  color: #1976d2;
+}
+
+.action-button.delete {
+  color: #f44336;
+}
+
+/* When editing, change the submit button color */
+.form-card.editing .button {
+  background-color: #1976d2;
+}
+
+/* Styles for post images */
+.post-card .images {
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.post-card .images img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex: 1 1 100%;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-size: 0.85rem;
+  border-top: 1px solid #e0e0e0;
+  background-color: #fff;
+}
+
+/* Authentication cards */
+.auth-card,
+.user-card {
+  margin-bottom: 20px;
+}
+
+/* Hidden helper class */
+.hidden {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .filters {
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+  }
+}
+
+/* Filter group styling */
+.filter-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Multi-select height */
+select[multiple] {
+  min-height: 80px;
+}
+
+/* --- Messaging Styles --- */
+
+.messages-card h2 {
+  margin-top: 0;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.message-select {
+  margin-bottom: 10px;
+}
+
+.message-select label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.messages-list {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.message {
+  padding: 6px 8px;
+  border-radius: 4px;
+  max-width: 70%;
+  word-wrap: break-word;
+  font-size: 0.85rem;
+}
+
+/* Messages sent by the current user align to the right and have a different color */
+.message.sent {
+  align-self: flex-end;
+  background-color: var(--secondary);
+  color: var(--text-light);
+}
+
+.message.received {
+  align-self: flex-start;
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.message-date {
+  display: block;
+  font-size: 0.7rem;
+  color: #777;
+  margin-top: 2px;
+}
+
+/* Read status indicator for messages sent by the current user */
+.read-status {
+  margin-left: 4px;
+  font-size: 0.75rem;
+  color: #555;
+}
+
+/* Typing indicator below messages list */
+.typing-indicator {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.message-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.message-form input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Conversation list and panel layout */
+.messaging-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.conversations-sidebar {
+  width: 35%;
+  border-right: 1px solid #e0e0e0;
+  padding-right: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.conversations-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.conversation-item {
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.conversation-item:hover {
+  background-color: #f5f5f5;
+}
+
+.conversation-item.active {
+  background-color: var(--secondary);
+  color: var(--text-light);
+}
+
+.conversation-item .conv-info {
+  flex: 1;
+}
+
+.conversation-item .conv-name {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.conversation-item .conv-preview {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.conversation-item .unread-badge {
+  background-color: var(--primary);
+  color: var(--text-light);
+  border-radius: 12px;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  margin-left: 8px;
+}
+
+.conversation-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.conversation-panel h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.new-conversation {
+  margin-top: 10px;
+}
+
+.new-conversation label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* --- Admin Dashboard Styles --- */
+
+/* The admin card container: hidden by default via the `hidden` class. */
+.admin-card h2 {
+  margin-top: 0;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.admin-section {
+  margin-top: 20px;
+}
+
+.admin-section h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: var(--secondary);
+}
+
+/* Pending posts list styling inside admin dashboard */
+#pendingPostsList .admin-post {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  background-color: #fafafa;
+}
+
+#pendingPostsList .admin-post .actions {
+  margin-top: 8px;
+}
+
+#pendingPostsList .admin-post button {
+  margin-right: 6px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#pendingPostsList .admin-post .approve-btn {
+  background-color: var(--secondary);
+  color: var(--text-light);
+}
+
+#pendingPostsList .admin-post .delete-btn {
+  background-color: #f44336;
+  color: var(--text-light);
+}
+
+/* Users list styling */
+#usersList .user-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  background-color: #fafafa;
+}
+
+#usersList .user-item button {
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#usersList .user-item .promote-btn {
+  background-color: var(--primary);
+  color: var(--text-light);
+}
+
+#usersList .user-item .demote-btn {
+  background-color: #f44336;
+  color: var(--text-light);
+}
